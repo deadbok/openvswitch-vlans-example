@@ -1,0 +1,40 @@
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: yes
+  tags:
+    - update
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - vlan
+  tags:
+    - vlan
+
+- name: Add the 8021q kernel module
+  lineinfile:
+    create: yes
+    line: 8021q
+    path: /etc/modules
+    state: present
+  become: yes
+  notify: Load the 8021q module
+
+- name: Echo network configuration
+  debug:
+    var: item
+  with_dict: "{{ interfaces }}"
+
+- name: Create network interfaces configurations
+  template:
+    src: device.j2
+    dest: "/etc/network/interfaces.d/{{ item }}"
+  with_dict: "{{ interfaces }}"
+  become: yes
+  tags:
+    - vlan

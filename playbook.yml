@@ -1,7 +1,22 @@
 ---
-
 - hosts: vswitch
   roles:
     - ansible-openvswitch
 
+- hosts: firewall
+  roles:
+    - ansible-debian-interfaces
+    - ansible-debian-dnsmasq
+
+- hosts: srv-media
+  roles:
+    - ansible-debian-interfaces
+
+- hosts: workstation
+  roles:
+    - ansible-debian-interfaces
+
+- hosts: wlan-workstation
+  roles:
+    - ansible-debian-interfaces
 ...

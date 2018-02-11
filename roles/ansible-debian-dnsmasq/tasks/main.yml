@@ -1,0 +1,36 @@
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: true
+  tags:
+    - update
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - dnsmasq
+  tags:
+    - dnsmasq
+
+- name: Create dnsmasq configuration
+  template:
+    src: dnsmasq.conf.j2
+    dest: /etc/dnsmasq.conf
+  notify:
+    - restart dnsmasq service
+  become: yes
+  tags:
+    - dnsmasq
+
+- name: Enable dnsmasq at boot
+  service:
+    name: dnsmasq
+    enabled: yes
+  become: yes
+  tags:
+    - dnsmasq
+

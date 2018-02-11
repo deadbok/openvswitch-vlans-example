@@ -1,0 +1,11 @@
+{% for interface, config in interfaces.items() %}
+auto {{ interface }}
+iface {{ interface }} inet {{ config.method }}
+{% if config.method != "dhcp" %}
+    address {{ config.ipv4 }}
+    gateway {{ config.gateway_ipv4 }}
+{% endif %}
+{% if config['vlan-raw-device'] %}
+    vlan-raw-device {{ config['vlan-raw-device'] }}
+{% endif %}
+{% endfor %}

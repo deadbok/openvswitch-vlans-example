@@ -1,0 +1,13 @@
+dnsmasq_interfaces:
+  eth0:
+    ipv4_range: "192.168.0.0,192.168.0.100,12h"
+  eth0.10:
+    ipv4_range: "192.168.10.0,192.168.10.100,12h"
+  eth0.11:
+    ipv4_range: "192.168.11.0,192.168.11.100,12h"
+  eth0.12:
+    ipv4_range: "192.168.12.0,192.168.12.100,12h"
+
+dnsmasq_domain: vmtest.faith
+
+dnsmasq_upstream_nameserver: 9.9.9.9

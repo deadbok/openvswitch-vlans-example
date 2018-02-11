@@ -1,0 +1,7 @@
+snmp_network: ""
+
+snmp_community: librenms
+
+monitor_admin_email: root@localhost
+monitor_admin_name: Local root user
+monitor_location: Smith Residence, Washington, USA, Earth, C34

@@ -1,0 +1,37 @@
+- name: Enable non-free packages
+  template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+  become: yes
+  tags:
+    - snmpd
+
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: true
+  tags:
+    - snmpd
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - snmp
+    - snmpd
+    - snmp-mibs-downloader
+  tags:
+    - snmpd
+
+- name: Create SNMPd configuration
+  template:
+    src: snmpd.conf.j2
+    dest: /etc/snmp/snmpd.conf
+  notify:
+    - restart snmpd service
+  become: yes
+  tags:
+    - snmpd
