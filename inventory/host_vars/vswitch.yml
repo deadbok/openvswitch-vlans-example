@@ -1,0 +1,26 @@
+openvswitch_bridges:
+ - bridge: 'br-int'
+   state: 'present'
+
+openvswitch_debian_packages:
+  - 'openvswitch-switch'
+  - 'openvswitch-common'
+
+openvswitch_ports:
+ - bridge: 'br-int'
+   ports:
+     - port: 'eth2'
+       state: 'present'
+       set: 'port eth2 vlan_mode=native-untagged trunks=10,11,12 lacp=active'
+     - port: 'eth3'
+       state: 'present'
+       tag: 10
+       set: 'port eth3 lacp=active'
+     - port: 'eth4'
+       state: 'present'
+       tag: 11
+       set: 'port eth4 lacp=active'
+     - port: 'eth5'
+       state: 'present'
+       tag: 12
+       set: 'port eth5 lacp=active'

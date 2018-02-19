@@ -1,11 +1,9 @@
-{% for interface, config in interfaces.items() %}
-auto {{ interface }}
-iface {{ interface }} inet {{ config.method }}
-{% if config.method != "dhcp" %}
-    address {{ config.ipv4 }}
-    gateway {{ config.gateway_ipv4 }}
+auto {{ item.key }}
+iface {{ item.key }} inet {{ item.value.method }}
+{% if item.value.method != "dhcp" %}
+    address {{ item.value.ipv4 }}
+    gateway {{ item.value.gateway_ipv4 }}
 {% endif %}
-{% if config['vlan-raw-device'] %}
-    vlan-raw-device {{ config['vlan-raw-device'] }}
+{% if item.value.vlan_raw_device is defined %}
+    vlan-raw-device {{ item.value.vlan_raw_device }}
 {% endif %}
-{% endfor %}

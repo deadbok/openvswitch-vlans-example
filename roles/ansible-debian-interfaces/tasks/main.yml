@@ -33,7 +33,7 @@
 - name: Create network interfaces configurations
   template:
     src: device.j2
-    dest: "/etc/network/interfaces.d/{{ item }}"
+    dest: "/etc/network/interfaces.d/{{ item.key }}"
   with_dict: "{{ interfaces }}"
   become: yes
   tags:

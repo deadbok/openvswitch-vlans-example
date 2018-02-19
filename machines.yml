@@ -1,0 +1,71 @@
+---
+firewall:
+  box: 'debian/stretch64'
+  memory: 256
+  cpus: 1
+  gui: false
+  networks:
+    - private_ip: '192.168.6.2'
+      private_net_name: 'management'
+      internal: false
+    - private_ip: '192.168.5.2'
+      private_net_name: 'firewall'
+      internal: false
+vswitch:
+  box: 'debian/stretch64'
+  memory: 512
+  cpus: 1
+  gui: false
+  networks:
+    - private_ip: '192.168.6.3'
+      private_net_name: 'management'
+      internal: false
+    - private_ip: '192.168.5.3'
+      private_net_name: 'firewall'
+      internal: false
+    - private_ip: '192.168.10.2'
+      private_net_name: 'media'
+      internal: false
+    - private_ip : '192.168.11.2'
+      private_net_name: 'work'
+      internal: false
+    - private_ip: '192.168.12.2'
+      private_net_name: 'wifi'    
+      internal: false
+srv-media:
+  box: 'debian/stretch64'
+  memory: 512
+  cpus: 1
+  gui: false
+  networks:
+    - private_ip: '192.168.6.4'
+      private_net_name: 'management'
+      internal: false
+    - private_ip: '192.168.10.3'
+      private_net_name: 'media'
+      internal: false
+workstation:
+  box: 'debian/stretch64'
+  memory: 512
+  cpus: 1
+  gui: false
+  networks:
+    - private_ip: '192.168.6.5'
+      private_net_name: 'management'
+      internal: false
+    - private_ip: '192.168.11.3'
+      private_net_name: 'work'
+      internal: false
+wlan-workstation:
+  box: 'debian/stretch64'
+  memory: 512 
+  cpus: 1
+  gui: false
+  networks:
+    - private_ip: '192.168.6.6'
+      private_net_name: 'management'
+      internal: false
+    - private_ip: '192.168.12.3'
+      private_net_name: 'wifi'
+      internal: false
+...

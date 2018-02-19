@@ -1,0 +1,24 @@
+interfaces:
+  eth1:
+    method: 'static'
+    ipv4: '192.168.6.2/24'
+    gateway_ipv4: '192.168.6.2'
+  eth2:
+    method: 'static'
+    ipv4: '192.168.5.2/24'
+    gateway_ipv4: '192.168.5.2'
+  eth2.10:
+    method: 'static'
+    ipv4: '192.168.10.2/24'
+    gateway_ipv4: '192.168.10.2'
+    vlan_raw_device: 'eth2'
+  eth2.11:
+    method: 'static'
+    ipv4: '192.168.11.2/24'
+    gateway_ipv4: '192.168.11.2'
+    vlan_raw_device: 'eth2'
+  eth2.12:
+    method: 'static'
+    ipv4: '192.168.12.2/24'
+    gateway_ipv4: '192.168.12.2'
+    vlan_raw_device: 'eth2'
