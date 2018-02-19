@@ -1,5 +1,6 @@
+---
 - name: Load the 8021q module
   modprobe:
     name: 8021q
-  state: present
+    state: present
   become: yes

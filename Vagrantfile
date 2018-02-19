@@ -69,7 +69,7 @@ Vagrant.configure('2') do |config|
         ansible.inventory_path = "inventory/vlan"
         ansible.playbook = "playbook.yml"
         ansible.verbose = "-v"
-        ansible.compatibility_mode = "2.0"
+        #ansible.compatibility_mode = "2.0"
       end
     end
   end

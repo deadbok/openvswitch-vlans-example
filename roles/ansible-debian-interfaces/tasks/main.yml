@@ -20,7 +20,7 @@
   lineinfile:
     create: yes
     line: 8021q
-    path: /etc/modules
+    dest: /etc/modules
     state: present
   become: yes
   notify: Load the 8021q module
