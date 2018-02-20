@@ -23,13 +23,13 @@ vswitch:
     - private_ip: '192.168.5.3'
       private_net_name: 'firewall'
       internal: false
-    - private_ip: '192.168.10.2'
+    - private_ip: '192.168.10.3'
       private_net_name: 'media'
       internal: false
-    - private_ip : '192.168.11.2'
+    - private_ip : '192.168.11.3'
       private_net_name: 'work'
       internal: false
-    - private_ip: '192.168.12.2'
+    - private_ip: '192.168.12.3'
       private_net_name: 'wifi'    
       internal: false
 srv-media:
@@ -41,7 +41,7 @@ srv-media:
     - private_ip: '192.168.6.4'
       private_net_name: 'management'
       internal: false
-    - private_ip: '192.168.10.3'
+    - private_ip: '192.168.10.4'
       private_net_name: 'media'
       internal: false
 workstation:
@@ -53,7 +53,7 @@ workstation:
     - private_ip: '192.168.6.5'
       private_net_name: 'management'
       internal: false
-    - private_ip: '192.168.11.3'
+    - private_ip: '192.168.11.4'
       private_net_name: 'work'
       internal: false
 wlan-workstation:
@@ -65,7 +65,7 @@ wlan-workstation:
     - private_ip: '192.168.6.6'
       private_net_name: 'management'
       internal: false
-    - private_ip: '192.168.12.3'
+    - private_ip: '192.168.12.4'
       private_net_name: 'wifi'
       internal: false
 ...
